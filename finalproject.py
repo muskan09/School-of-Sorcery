@@ -29,7 +29,7 @@ def showCurriculum(university_id):
 	return "This page is the curriculum for university %s"%university_id
 	
 #Create a new course in the curriculum
-@app.route('/university/<int:university_id>/curriculum/new/',methods=['GET','POST'])
+@app.route('/university/<int:university_id>/curriculum/new/', methods=['GET','POST'])
 def newCourse(university_id):
 	return "This page is for making a new course for curriculum of university %s"%university_id
 	
