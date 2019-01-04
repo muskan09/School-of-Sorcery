@@ -1,0 +1,58 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+	<div class="row divider green">
+		<div class="col-md-12"></div>
+	</div>
+	<div class="row banner menu">
+		<div class="col-md-11 col-md-offset-1 padding-none">
+			<h1>Edit Course</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6 col-md-offset-1 padding-top">
+			<form action="{{ url_for('editCourse',university_id = university.id,course_id=course.id)}}" method = "post">
+				<div class="form-group">
+					<label for="name">Name:</label>
+					<input type ="text" maxlength="100" class="form-control" name="name" value="{{course.name }}">
+
+					<label for="description">Description:</label>
+					<textarea class="form-control" maxlength="250" rows="3" name="description">{{course.description}}</textarea>
+
+					<label for="professor">Professor:</label>
+					<div class="input-group">
+						<div class="input-group-addon">Professor</div>
+						<input type ="text" maxlength="10" class="form-control" name="professor" value="{{course.professor}}">
+					</div>
+					<label for="school">School:</label>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="school" id="school1" value="School of Spells" {% if course.school == 'School of Spells'%}checked{%endif%}>School of Spells
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="school" id="school2" value="School of Defence Against Dark Arts" {% if course.school == 'School of Defence Against Dark Arts' %}checked{%endif%}>School of Defence Against Dark Arts
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="school" id="school3" value="School of Potions" {% if course.school == 'School of Potions'%}checked{%endif%}>School of Potions
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="school" id="school4" value="School of Creature Care" {%if course.school =='School of Creature Care'%}checked{%endif%}>School of Creature Care
+					  </label>
+					</div>
+					<button type="submit" class="btn btn-default" id="submit" type="submit">
+					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Save</button>
+					<a href = '{{url_for('showUniversities')}}'>
+						<button class="btn btn-default delete">
+						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel</button>
+					</a>
+				</div>
+			</form>
+		</div>
+	</div>
+{% endblock %}
