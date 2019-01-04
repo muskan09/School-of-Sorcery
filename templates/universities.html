@@ -29,17 +29,11 @@
     {% endwith %}
 
 </div>
-	
-	<div class="row padding-top padding-bottom">
-		<div class="col-md-1"></div>
-		<div class="col-md-10 padding-none">
-			<a href="{{url_for('newUniversity')}}">
-				<button class="btn btn-default" id="new-university">
-					<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>Add University
-				</button>
-			</a>
-		</div>
-		<div class="col-md-1"></div>
+	<div>
+	<p>
+	</br>
+	</br>
+	</p>
 	</div>
 	{% for university in universities %}
 		<a href = "{{url_for('showCurriculum', university_id = university.id)}}">
@@ -52,4 +46,15 @@
 			</div>
 		</a>
 	{% endfor %}
+	<div class="row padding-top padding-bottom">
+		<div class="col-md-1"></div>
+		<div class="col-md-10 padding-none">
+			<a href="{{url_for('newUniversity')}}">
+				<button class="btn btn-default" id="new-university">
+					<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>Add University
+				</button>
+			</a>
+		</div>
+		<div class="col-md-1"></div>
+	</div>
 {% endblock %}
