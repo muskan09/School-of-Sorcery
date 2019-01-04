@@ -5,11 +5,22 @@ from sqlalchemy import create_engine
  
 Base = declarative_base()
 
+class User(Base):
+	__tablename__ = 'user'
+	
+	id = Column(Integer, primary_key=True)
+	name = Column(String(250), nullable=False)
+	email = Column(String(250), nullable=False)
+	picture = Column(String(250))
+
+
 class University(Base):
     __tablename__ = 'university'
    
     id = Column(Integer, primary_key=True)
     name = Column(String(250), nullable=False)
+    user_id = Column(Integer, ForeignKey('user.id'))
+    user = relationship(User)
 
     @property
     def serialize(self):
@@ -30,6 +41,8 @@ class Course(Base):
     school = Column(String(250))
     university_id = Column(Integer,ForeignKey('university.id'))
     university = relationship(University)
+    user_id = Column(Integer, ForeignKey('user.id'))
+    user = relationship(User)
 
 
     @property
