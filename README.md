@@ -36,19 +36,20 @@
 >Install vagrant
 >Clone the [fullstack-nanodegree-vm repository](https://github.com/udacity/fullstack-nanodegree-vm)
 
->Clone the [university app](https://github.com/muskan09/university-application) and add it to the vagrant dir.
+>Clone the [university app](https://github.com/muskan09/UniversityApp) and add it to the vagrant dir.
 
 ##STEPS TO RUN THE APPLICATION
->Launch the Vagrant VM from inside the vagrant folder with: `vagrant up`
+>Launch the Vagrant VM from inside the vagrant folder with: 
+`vagrant up`
 
 >Then access the shell with:       
 `vagrant ssh`
 
 >Then move inside the universityapp directory:
-`cd /vagrant/universityapp`
+`cd /vagrant/UniversityApp`
 
 >Then run the application(note, this uses python2):
-`python application.py`
+`python finalproject.py`
 
 >After the last command you are able to browse the application at this URL:        
 `http://localhost:5000/`
@@ -59,7 +60,7 @@
 `python3 finaldatabase_setup.py`
 
 >to populate the database  
-Clone the [lotsofcourses.py file](https://github.com/muskan09/lotsofcourses)
+Clone the [lotsofcourses.py file](https://github.com/muskan09/LotsOfCourses)
 then run 
 `python3 finallotsofcourses.py`
 
@@ -76,9 +77,9 @@ then run
 >All html added in /templates dir and necessary code added to finalproject.py and all html pages are tested.
 
 ####4: DATABASE CREATION & POPULATION
->finaldatabase_setup.py created and populated with [finallotsofcourses.py](https://github.com/muskan09/lotsofcourses).
+>finaldatabase_setup.py created and populated with [finallotsofcourses.py](https://github.com/muskan09/LotsOfCourses).
  
->Checked curriculum.db using sqldbrowser.
+>Checked curriculum.db using sqlitebrowser.
 
 ####5: CRUD FUNCTIONALITY
 > All the functions for creating, reading, updating,deleting university and courses added. And then finalproject.py is tested with all the functionalities.
