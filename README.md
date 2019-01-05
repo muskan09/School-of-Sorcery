@@ -60,7 +60,7 @@
 `python3 finaldatabase_setup.py`
 
 > to populate the database  
-Clone the [lotsofcourses.py file](https://github.com/muskan09/LotsOfCourses)
+Clone the [finallotsofcourses.py file](https://github.com/muskan09/LotsOfCourses)
 then run 
 `python3 finallotsofcourses.py`
 
