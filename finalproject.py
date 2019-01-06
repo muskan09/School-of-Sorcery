@@ -138,9 +138,8 @@ def showCurriculum(university_id):
     if "username" not in login_session:
         return render_template(
             "public_courses.html",
-            categories=categories,
-            items=items,
-            quantity=quantity,
+            courses=courses,
+            university=university,
         )
     else:
         return render_template(
