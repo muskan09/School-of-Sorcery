@@ -51,6 +51,16 @@ def universitiesJSON():
     return jsonify(universities=[u.serialize for u in universities])
 
 
+# Create User Info
+def createUser():
+    name = login_session['name']
+    email = login_session['email']
+    picture = login_session['picture']
+    newUser = User(name=name, email=email, picture=picture)
+    session.add(newUser)
+    session.commit()
+
+
 # Show all universities
 @app.route("/")
 @app.route("/university")
@@ -92,6 +102,9 @@ def editUniversity(university_id):
     editedUniversity = (
         session.query(University).filter_by(id=university_id).one()
     )
+    if University.user_id != User.id:
+        flash("You can't edit anyone else's university!")
+        return redirect(url_for("showUniversities"))
     if request.method == "POST":
         if request.form["name"]:
             editedUniversity.name = request.form["name"]
@@ -112,6 +125,9 @@ def deleteUniversity(university_id):
     universityToDelete = (
         session.query(University).filter_by(id=university_id).one()
     )
+    if University.user_id != User.id:
+        flash("You can't delete anyone else's university")
+        return redirect(url_for("showUniversities"))
     if request.method == "POST":
         session.delete(universityToDelete)
         flash("%s Successfully Deleted" % universityToDelete.name)
@@ -184,6 +200,9 @@ def editCourse(university_id, course_id):
     # return "This page is for editing course %s"%course_id
     if "username" not in login_session:
         return redirect("/login")
+    if Course.user_id != User.id:
+        flash("You can't edit anyone else's course")
+        return redirect(url_for("showCurriculum", university_id=university_id))
     editedCourse = session.query(Course).filter_by(id=course_id).one()
     university = session.query(University).filter_by(id=university_id).one()
     if request.method == "POST":
@@ -214,6 +233,9 @@ def deleteCourse(university_id, course_id):
     # return "This page is for deleting course %s"%course_id
     if "username" not in login_session:
         return redirect("/login")
+    if Course.user_id != User.id:
+        flash("You can't delete anyone else's course")
+        return redirect(url_for("showCurriculum", university_id=university_id))
     university = session.query(University).filter_by(id=university_id).one()
     courseToDelete = session.query(Course).filter_by(id=course_id).one()
     if request.method == "POST":

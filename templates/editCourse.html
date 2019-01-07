@@ -14,20 +14,20 @@
 			<form action="{{ url_for('editCourse',university_id = university.id,course_id=course.id)}}" method = "post">
 				<div class="form-group">
 					<label for="name">Name:</label>
-					<input type ="text" maxlength="100" class="form-control" name="name" value="{{course.name }}">
+					<input type ="text" maxlength="100" class="form-control" name="name" value="{{course.name }}" required>
 
 					<label for="description">Description:</label>
-					<textarea class="form-control" maxlength="250" rows="3" name="description">{{course.description}}</textarea>
+					<textarea class="form-control" maxlength="250" rows="3" name="description" required>{{course.description}}</textarea>
 
 					<label for="professor">Professor:</label>
 					<div class="input-group">
 						<div class="input-group-addon">Professor</div>
-						<input type ="text" maxlength="10" class="form-control" name="professor" value="{{course.professor}}">
+						<input type ="text" maxlength="10" class="form-control" name="professor" value="{{course.professor}}" required>
 					</div>
 					<label for="school">School:</label>
 					<div class="radio">
 					  <label>
-					    <input type="radio" name="school" id="school1" value="School of Spells" {% if course.school == 'School of Spells'%}checked{%endif%}>School of Spells
+					    <input type="radio" name="school" id="school1" value="School of Spells" required {% if course.school == 'School of Spells'%}checked{%endif%}>School of Spells
 					  </label>
 					</div>
 					<div class="radio">

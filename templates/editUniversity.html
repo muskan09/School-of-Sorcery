@@ -13,8 +13,8 @@
 		<div class="col-md-6 col-md-offset-1 padding-top">
 			<form action="{{ url_for('editUniversity',university_id = university.id)}}" method = "post">
 				<div class="form-group">
-					<label for="name">Name:</label>
-					<input type ="text" class="form-control" name="name" value="{{university.name }}">
+					<label for="name" >Name:</label>
+					<input type ="text" class="form-control" name="name" value="{{university.name }}" required>
 					<div class="padding-bottom"></div>
 					<button type="submit" class="btn btn-default" id="submit" type="submit">
 					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Save</button>
