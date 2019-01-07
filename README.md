@@ -33,7 +33,9 @@
 
 ## SETUP
 > Install virtual machine
+
 > Install vagrant
+
 > Clone the [fullstack-nanodegree-vm repository](https://github.com/udacity/fullstack-nanodegree-vm)
 
 > Clone the [university app](https://github.com/muskan09/UniversityApp) and add it to the vagrant dir.
